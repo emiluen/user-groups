@@ -33,9 +33,6 @@ export class UserPage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-          <ExpensesSummary />
-          <ExpenseListFilters />
-
           <h3>
             GroupList
           </h3>
@@ -45,7 +42,6 @@ export class UserPage extends React.Component {
           <h3>
             UserExpenseList
           </h3>
-          <UserExpenseList />
         </div>
       </div>
     );
