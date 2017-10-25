@@ -4,7 +4,7 @@ import moment from 'moment';
 
 export default (groups, user) => {
   return groups.filter((group) => {
-    if (!user.user_groups) {
+    if (!user || !user.user_groups) {
       return false;
     }
 
