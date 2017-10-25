@@ -17,49 +17,49 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export { firebase, googleAuthProvider, database as default };
 
 // // child_removed
-// database.ref('expenses').on('child_removed', (snapshot) => {
+// database.ref('groups').on('child_removed', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
 // // child_changed
-// database.ref('expenses').on('child_changed', (snapshot) => {
+// database.ref('groups').on('child_changed', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
 // // child_added
-// database.ref('expenses').on('child_added', (snapshot) => {
+// database.ref('groups').on('child_added', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
-// // database.ref('expenses')
+// // database.ref('groups')
 // //   .once('value')
 // //   .then((snapshot) => {
-// //     const expenses = [];
+// //     const groups = [];
 
 // //     snapshot.forEach((childSnapshot) => {
-// //       expenses.push({
+// //       groups.push({
 // //         id: childSnapshot.key,
 // //         ...childSnapshot.val()
 // //       });
 // //     });
 
-// //     console.log(expenses);
+// //     console.log(groups);
 // //   });
 
-// // database.ref('expenses').on('value', (snapshot) => {
-// //   const expenses = [];
+// // database.ref('groups').on('value', (snapshot) => {
+// //   const groups = [];
 
 // //   snapshot.forEach((childSnapshot) => {
-// //     expenses.push({
+// //     groups.push({
 // //       id: childSnapshot.key,
 // //       ...childSnapshot.val()
 // //     });
 // //   });
 
-// //   console.log(expenses);
+// //   console.log(groups);
 // // });
 
-// database.ref('expenses').push({
+// database.ref('groups').push({
 //   description: 'Rent',
 //   note: '',
 //   amount: 109500,

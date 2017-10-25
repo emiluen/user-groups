@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GroupForm from './GroupForm';
-import { startEditExpense, startRemoveExpense } from '../actions/expenses';
+import { startEditGroup, startRemoveGroup } from '../actions/groups';
 
 export class EditGroupPage extends React.Component {
-  onSubmit = (expense) => {
-    this.props.startEditExpense(this.props.expense.id, expense);
+  onSubmit = (group) => {
+    this.props.startEditGroup(this.props.group.id, group);
     this.props.history.push('/');
   };
   onRemove = () => {
-    this.props.startRemoveExpense({ id: this.props.expense.id });
+    this.props.startRemoveGroup({ id: this.props.group.id });
     this.props.history.push('/');
   };
   render() {
@@ -17,15 +17,15 @@ export class EditGroupPage extends React.Component {
       <div>
         <div className="page-header">
           <div className="content-container">
-            <h1 className="page-header__title">Edit Expense</h1>
+            <h1 className="page-header__title">Edit Group</h1>
           </div>
         </div>
         <div className="content-container">
           <GroupForm
-            expense={this.props.expense}
+            group={this.props.group}
             onSubmit={this.onSubmit}
           />
-          <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
+          <button className="button button--secondary" onClick={this.onRemove}>Remove Group</button>
         </div>
       </div>
     );
@@ -33,12 +33,12 @@ export class EditGroupPage extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-  expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+  group: state.groups.find((group) => group.id === props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
-  startRemoveExpense: (data) => dispatch(startRemoveExpense(data)),
+  startEditGroup: (id, group) => dispatch(startEditGroup(id, group)),
+  startRemoveGroup: (data) => dispatch(startRemoveGroup(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditGroupPage);

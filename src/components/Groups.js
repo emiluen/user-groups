@@ -9,9 +9,9 @@ import GroupListSummary from './GroupListSummary';
 
 const Groups = (props) => (
   <div>
-    <GroupListSummary expenses={props.expenses} edit={props.edit} />
+    <GroupListSummary groups={props.groups} edit={props.edit} />
     <GroupListFilters />
-    <GroupList expenses={props.expenses} edit={props.edit} />
+    <GroupList groups={props.groups} edit={props.edit} />
   </div>
 );
 

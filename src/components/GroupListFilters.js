@@ -32,7 +32,7 @@ export class GroupListFilters extends React.Component {
             <input
               className="text-input"
               type="text"
-              placeholder="Search expenses"
+              placeholder="Search groups"
               value={this.props.filters.text}
               onChange={this.onTextChange}
             />

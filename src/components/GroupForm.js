@@ -7,10 +7,10 @@ export default class GroupForm extends React.Component {
     super(props);
 
     this.state = {
-      description: props.expense ? props.expense.description : '',
-      note: props.expense ? props.expense.note : '',
-      amount: props.expense ? (props.expense.amount / 100).toString() : '',
-      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+      description: props.group ? props.group.description : '',
+      note: props.group ? props.group.note : '',
+      amount: props.group ? (props.group.amount / 100).toString() : '',
+      createdAt: props.group ? moment(props.group.createdAt) : moment(),
       calendarFocused: false,
       error: ''
     };
@@ -82,13 +82,13 @@ export default class GroupForm extends React.Component {
         />
         <textarea
           className="textarea"
-          placeholder="Add a note for your expense (optional)"
+          placeholder="Add a note for your group (optional)"
           value={this.state.note}
           onChange={this.onNoteChange}
         >
         </textarea>
         <div>
-          <button className="button">Save Expense</button>
+          <button className="button">Save Group</button>
         </div>
       </form>
     )

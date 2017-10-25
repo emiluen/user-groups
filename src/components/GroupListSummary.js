@@ -2,31 +2,31 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import numeral from 'numeral';
-import selectExpenses from '../selectors/expenses';
-import selectExpensesTotal from '../selectors/expenses-total';
+import selectGroups from '../selectors/groups';
+import selectGroupsTotal from '../selectors/groups-total';
 
 export class GroupListSummary extends React.Component {
-  countExpenses = () => {
-    return this.props.expenses.length;
+  countGroups = () => {
+    return this.props.groups.length;
   }
 
-  totalExpenses = () => {
-    return selectExpensesTotal(this.props.expenses);
+  totalGroups = () => {
+    return selectGroupsTotal(this.props.groups);
   }
 
   expenseWord = () => {
-    return this.countExpenses() === 1 ? 'expense' : 'expenses';
+    return this.countGroups() === 1 ? 'group' : 'groups';
   }
 
-  formattedExpensesTotal = () => {
-    return numeral(this.totalExpenses() / 100).format('$0,0.00');
+  formattedGroupsTotal = () => {
+    return numeral(this.totalGroups() / 100).format('$0,0.00');
   }
 
   renderButton = () => {
     if (this.props.edit) {
       return (
         <div className="page-header__actions">
-          <Link className="button" to="/create">Add Expense</Link>
+          <Link className="button" to="/create">Add Group</Link>
         </div>
       );
     }
@@ -36,7 +36,7 @@ export class GroupListSummary extends React.Component {
     return (
       <div className="page-header">
         <div className="content-container">
-          <h1 className="page-header__title">Viewing <span>{this.countExpenses()}</span> {this.expenseWord()} totalling <span>{this.formattedExpensesTotal()}</span></h1>
+          <h1 className="page-header__title">Viewing <span>{this.countGroups()}</span> {this.expenseWord()} totalling <span>{this.formattedGroupsTotal()}</span></h1>
           {this.renderButton()}
         </div>
       </div>

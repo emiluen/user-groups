@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Groups from './Groups';
-import selectExpenses from '../selectors/expenses';
-import selectUserExpenses from '../selectors/expenses-user';
+import selectGroups from '../selectors/groups';
+import selectUserGroups from '../selectors/groups-user';
 
 const UserPage = (props) => (
   <div>
@@ -12,14 +12,14 @@ const UserPage = (props) => (
       </div>
     </div>
     <div className="content-container">
-      <Groups expenses={props.expenses} edit={false} />
+      <Groups groups={props.groups} edit={false} />
     </div>
   </div>
 );
 
 const mapStateToProps = (state) => {
   return {
-    expenses: selectUserExpenses(selectExpenses(state.expenses, state.filters), state.user)
+    groups: selectUserGroups(selectGroups(state.groups, state.filters), state.user)
   };
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Groups from './Groups';
-import selectExpenses from '../selectors/expenses';
+import selectGroups from '../selectors/groups';
 
 const GroupsPage = (props) => (
   <div>
@@ -11,14 +11,14 @@ const GroupsPage = (props) => (
       </div>
     </div>
     <div className="content-container">
-      <Groups expenses={props.expenses} edit={false} />
+      <Groups groups={props.groups} edit={false} />
     </div>
   </div>
 );
 
 const mapStateToProps = (state) => {
   return {
-    expenses: selectExpenses(state.expenses, state.filters)
+    groups: selectGroups(state.groups, state.filters)
   };
 };
 

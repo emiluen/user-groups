@@ -1,13 +1,13 @@
 import moment from 'moment';
 
-// Get visible expenses
+// Get visible groups
 
-export default (expenses, { text, sortBy, startDate, endDate }) => {
-  return expenses.filter((expense) => {
-    const createdAtMoment = moment(expense.createdAt);
+export default (groups, { text, sortBy, startDate, endDate }) => {
+  return groups.filter((group) => {
+    const createdAtMoment = moment(group.createdAt);
     const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
     const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
-    const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
+    const textMatch = group.description.toLowerCase().includes(text.toLowerCase());
 
     return startDateMatch && endDateMatch && textMatch;
   }).sort((a, b) => {

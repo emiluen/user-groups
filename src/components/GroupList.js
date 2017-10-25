@@ -7,19 +7,19 @@ import GroupListItem from './GroupListItem';
 const GroupList = (props) => (
   <div className="content-container">
     <div className="list-header">
-      <div className="show-for-mobile">Expenses</div>
-      <div className="show-for-desktop">Expense</div>
+      <div className="show-for-mobile">Groups</div>
+      <div className="show-for-desktop">Group</div>
       <div className="show-for-desktop">Amount</div>
     </div>
     <div className="list-body">
       {
-        props.expenses.length === 0 ? (
+        props.groups.length === 0 ? (
           <div className="list-item list-item--message">
-            <span>No expenses</span>
+            <span>No groups</span>
           </div>
         ) : (
-            props.expenses.map((expense) => {
-              return <GroupListItem key={expense.id} {...expense} edit={props.edit} />;
+            props.groups.map((group) => {
+              return <GroupListItem key={group.id} {...group} edit={props.edit} />;
             })
           )
       }

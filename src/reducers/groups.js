@@ -1,29 +1,29 @@
-// Expenses Reducer
+// Groups Reducer
 
 const expensesReducerDefaultState = [];
 
 export default (state = expensesReducerDefaultState, action) => {
   switch (action.type) {
-    case 'ADD_EXPENSE':
+    case 'ADD_GROUP':
       return [
         ...state,
-        action.expense
+        action.group
       ];
-    case 'REMOVE_EXPENSE':
+    case 'REMOVE_GROUP':
       return state.filter(({ id }) => id !== action.id);
-    case 'EDIT_EXPENSE':
-      return state.map((expense) => {
-        if (expense.id === action.id) {
+    case 'EDIT_GROUP':
+      return state.map((group) => {
+        if (group.id === action.id) {
           return {
-            ...expense,
+            ...group,
             ...action.updates
           };
         } else {
-          return expense;
+          return group;
         };
       });
-    case 'SET_EXPENSES':
-      return action.expenses;
+    case 'SET_GROUPS':
+      return action.groups;
     default:
       return state;
   }

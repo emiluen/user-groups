@@ -1,13 +1,15 @@
-export default (state = {}, action) => {
+export default (state = {
+  user_groups: {}
+}, action) => {
   switch (action.type) {
     case 'SET_USER':
       return action.user;
     case 'EDIT_USER_GROUP':
-      let user_expenses = {
-        ...state.user_expenses,
-        [action.expense.id]: action.expense.bool
+      let user_groups = {
+        ...state.user_groups,
+        [action.group.id]: action.group.bool
       };
-      return { ...state, user_expenses: user_expenses};
+      return { ...state, user_groups: user_groups};
     default:
       return state;
   }

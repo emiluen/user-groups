@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GroupForm from './GroupForm';
-import { startAddExpense } from '../actions/expenses';
+import { startAddGroup } from '../actions/groups';
 
 export class AddGroupPage extends React.Component {
-  onSubmit = (expense) => {
-    this.props.startAddExpense(expense);
+  onSubmit = (group) => {
+    this.props.startAddGroup(group);
     this.props.history.push('/');
   };
   render() {
@@ -13,7 +13,7 @@ export class AddGroupPage extends React.Component {
       <div>
         <div className="page-header">
           <div className="content-container">
-            <h1 className="page-header__title">Add Expense</h1>
+            <h1 className="page-header__title">Add Group</h1>
           </div>
         </div>
         <div className="content-container">
@@ -27,7 +27,7 @@ export class AddGroupPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddExpense: (expense) => dispatch(startAddExpense(expense))
+  startAddGroup: (group) => dispatch(startAddGroup(group))
 });
 
 export default connect(undefined, mapDispatchToProps)(AddGroupPage);

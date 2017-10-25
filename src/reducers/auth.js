@@ -1,20 +1,20 @@
 export default (state = {}, action) => {
   switch (action.type) {
-    case 'SET_MY_EXPENSES':
-      console.log('action.expenses', action.expenses);
+    case 'SET_MY_GROUPS':
+      console.log('action.groups', action.groups);
       let expenses2 = {
-        ...action.expenses
+        ...action.groups
       };
       return { ...state, expenses2 };
-    case 'START_ADD_MY_EXPENSE':
+    case 'START_ADD_MY_GROUP':
       console.log(action);
-      console.log(state.expenses);
-      let expenses = {
-        ...state.expenses,
+      console.log(state.groups);
+      let groups = {
+        ...state.groups,
         [action.id]: true
       };
-      console.log('exp', expenses);
-      return { ...state, expenses };
+      console.log('exp', groups);
+      return { ...state, groups };
     case 'LOGIN':
       return { ...action.user };
     case 'LOGOUT':

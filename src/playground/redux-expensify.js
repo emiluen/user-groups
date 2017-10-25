@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux';
 import uuid from 'uuid';
 
-// ADD_EXPENSE
-const addExpense = (
+// ADD_GROUP
+const addGroup = (
   {
     description = '',
     note = '',
@@ -10,8 +10,8 @@ const addExpense = (
     createdAt = 0
   } = {}
 ) => ({
-  type: 'ADD_EXPENSE',
-  expense: {
+  type: 'ADD_GROUP',
+  group: {
     id: uuid(),
     description,
     note,
@@ -20,15 +20,15 @@ const addExpense = (
   }
 });
 
-// REMOVE_EXPENSE
-const removeExpense = ({ id } = {}) => ({
-  type: 'REMOVE_EXPENSE',
+// REMOVE_GROUP
+const removeGroup = ({ id } = {}) => ({
+  type: 'REMOVE_GROUP',
   id
 });
 
-// EDIT_EXPENSE
-const editExpense = (id, updates) => ({
-  type: 'EDIT_EXPENSE',
+// EDIT_GROUP
+const editGroup = (id, updates) => ({
+  type: 'EDIT_GROUP',
   id,
   updates
 });
@@ -61,28 +61,28 @@ const setEndDate = (endDate) => ({
   endDate
 });
 
-// Expenses Reducer
+// Groups Reducer
 
 const expensesReducerDefaultState = [];
 
 const expensesReducer = (state = expensesReducerDefaultState, action) => {
   switch (action.type) {
-    case 'ADD_EXPENSE':
+    case 'ADD_GROUP':
       return [
         ...state,
-        action.expense
+        action.group
       ];
-    case 'REMOVE_EXPENSE':
+    case 'REMOVE_GROUP':
       return state.filter(({ id }) => id !== action.id);
-    case 'EDIT_EXPENSE':
-      return state.map((expense) => {
-        if (expense.id === action.id) {
+    case 'EDIT_GROUP':
+      return state.map((group) => {
+        if (group.id === action.id) {
           return {
-            ...expense,
+            ...group,
             ...action.updates
           };
         } else {
-          return expense;
+          return group;
         };
       });
     default:
@@ -131,12 +131,12 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
   }
 };
 
-// Get visible expenses
-const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
-  return expenses.filter((expense) => {
-    const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
-    const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
-    const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
+// Get visible groups
+const getVisibleGroups = (groups, { text, sortBy, startDate, endDate }) => {
+  return groups.filter((group) => {
+    const startDateMatch = typeof startDate !== 'number' || group.createdAt >= startDate;
+    const endDateMatch = typeof endDate !== 'number' || group.createdAt <= endDate;
+    const textMatch = group.description.toLowerCase().includes(text.toLowerCase());
 
     return startDateMatch && endDateMatch && textMatch;
   }).sort((a, b) => {
@@ -152,22 +152,22 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
 
 const store = createStore(
   combineReducers({
-    expenses: expensesReducer,
+    groups: expensesReducer,
     filters: filtersReducer
   })
 );
 
 store.subscribe(() => {
   const state = store.getState();
-  const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-  console.log(visibleExpenses);
+  const visibleGroups = getVisibleGroups(state.groups, state.filters);
+  console.log(visibleGroups);
 });
 
-const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: -21000 }));
-const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 300, createdAt: -1000 }));
+const expenseOne = store.dispatch(addGroup({ description: 'Rent', amount: 100, createdAt: -21000 }));
+const expenseTwo = store.dispatch(addGroup({ description: 'Coffee', amount: 300, createdAt: -1000 }));
 
-// store.dispatch(removeExpense({ id: expenseOne.expense.id }));
-// store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }));
+// store.dispatch(removeGroup({ id: expenseOne.group.id }));
+// store.dispatch(editGroup(expenseTwo.group.id, { amount: 500 }));
 
 // store.dispatch(setTextFilter('ffe'));
 // store.dispatch(setTextFilter());
@@ -180,7 +180,7 @@ store.dispatch(sortByAmount());
 // store.dispatch(setEndDate(999)); // endDate 1250
 
 const demoState = {
-  expenses: [{
+  groups: [{
     id: 'poijasdfhwer',
     description: 'January Rent',
     note: 'This was the final payment for that address',
