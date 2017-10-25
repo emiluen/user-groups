@@ -4,7 +4,7 @@ import moment from 'moment';
 import numeral from 'numeral';
 
 const ExpenseListItem = ({ id, description, amount, createdAt, edit }) => {
-  const getLink = () => {
+  const getPath = () => {
     if (edit) {
       return `/edit/${id}`;
     }
@@ -13,9 +13,8 @@ const ExpenseListItem = ({ id, description, amount, createdAt, edit }) => {
   }
 
   return (
-    <Link className="list-item" to={getLink()}>
+    <Link className="list-item" to={getPath()}>
       <div>
-        <div>Edit: {edit}</div>
         <h3 className="list-item__title">{description}</h3>
         <span className="list-item__sub-title">{moment(createdAt).format('MMMM Do, YYYY')}</span>
       </div>

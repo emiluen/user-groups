@@ -7,7 +7,6 @@ import selectExpensesTotal from '../selectors/expenses-total';
 
 export class ExpensesSummary extends React.Component {
   countExpenses = () => {
-    console.log('countExpenses');
     return this.props.expenses.length;
   }
 

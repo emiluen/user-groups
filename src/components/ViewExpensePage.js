@@ -22,14 +22,16 @@ export class ViewExpensePage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-          <h1>{this.props.expense.description}</h1>
-          <p>Amount: {this.props.expense.amount}</p>
-          <p>Created: {this.props.expense.createdAt}</p>
-          <p>Note: {this.props.expense.note}</p>
-        </div>
-        <div>
-          <button className="button" onClick={this.onAdd}>Add as My Expense</button>
-          <button className="button button--secondary" onClick={this.onRemove}>Remove as My Expense</button>
+          <div>
+            <h1>{this.props.expense.description}</h1>
+            <p>Amount: {this.props.expense.amount}</p>
+            <p>Created: {this.props.expense.createdAt}</p>
+            <p>Note: {this.props.expense.note}</p>
+          </div>
+          <div>
+            <button className="button" onClick={this.onAdd}>Add Expense to Profile</button>
+            <button className="button button--secondary" onClick={this.onRemove}>Remove Expense from Profile</button>
+          </div>
         </div>
       </div>
     );

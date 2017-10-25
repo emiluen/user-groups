@@ -2,13 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Expenses from './Expenses';
 import selectExpenses from '../selectors/expenses';
-import selectUserExpenses from '../selectors/expenses-user';
 
-const UserPage = (props) => (
+const DashboardPage = (props) => (
   <div>
     <div className="page-header">
       <div className="content-container">
-        <h1 className="page-header__title">User Page</h1>
+        <h1 className="page-header__title">Dashboard</h1>
       </div>
     </div>
     <div className="content-container">
@@ -19,8 +18,8 @@ const UserPage = (props) => (
 
 const mapStateToProps = (state) => {
   return {
-    expenses: selectUserExpenses(selectExpenses(state.expenses, state.filters), state.user)
+    expenses: selectExpenses(state.expenses, state.filters)
   };
 };
 
-export default connect(mapStateToProps)(UserPage);
+export default connect(mapStateToProps)(DashboardPage);

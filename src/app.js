@@ -34,16 +34,13 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user));
-    console.log('user', user);
     store.dispatch(startSetExpenses()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {
         history.push('/dashboard');
       }
     });
-    store.dispatch(startSetUser()).then(() => {
-      console.log('got my expenses');
-    });
+    store.dispatch(startSetUser());
   } else {
     store.dispatch(login());
     renderApp();

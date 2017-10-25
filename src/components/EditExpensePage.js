@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
-import { startEditGroup } from '../actions/user';
 
 export class EditExpensePage extends React.Component {
   onSubmit = (expense) => {
@@ -40,7 +39,6 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch, props) => ({
   startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
   startRemoveExpense: (data) => dispatch(startRemoveExpense(data)),
-  startEditGroup: (id, bool) => dispatch(startEditGroup(id, bool))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);

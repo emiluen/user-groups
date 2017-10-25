@@ -26,6 +26,7 @@ export const setUser = (user) => ({
 export const startSetUser = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+
     return database.ref(`users/${uid}`).once('value').then((snapshot) => {
       const expenses = [];
 
