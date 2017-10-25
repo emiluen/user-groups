@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import GroupList from './GroupList';
 import UserExpenseList from './UserExpenseList';
 import ExpenseListFilters from './ExpenseListFilters';
 import ExpensesSummary from './ExpensesSummary';
@@ -34,6 +35,16 @@ export class UserPage extends React.Component {
         <div className="content-container">
           <ExpensesSummary />
           <ExpenseListFilters />
+
+          <h3>
+            GroupList
+          </h3>
+
+          <GroupList />
+
+          <h3>
+            UserExpenseList
+          </h3>
           <UserExpenseList />
         </div>
       </div>
