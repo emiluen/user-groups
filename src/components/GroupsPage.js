@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Expenses from './Expenses';
+import Groups from './Groups';
 import selectExpenses from '../selectors/expenses';
 
-const DashboardPage = (props) => (
+const GroupsPage = (props) => (
   <div>
     <div className="page-header">
       <div className="content-container">
-        <h1 className="page-header__title">Dashboard</h1>
+        <h1 className="page-header__title">Groups</h1>
       </div>
     </div>
     <div className="content-container">
-      <Expenses expenses={props.expenses} edit={false} />
+      <Groups expenses={props.expenses} edit={false} />
     </div>
   </div>
 );
@@ -22,4 +22,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(DashboardPage);
+export default connect(mapStateToProps)(GroupsPage);

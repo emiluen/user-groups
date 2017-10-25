@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ExpenseForm from './ExpenseForm';
+import GroupForm from './GroupForm';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 import { startEditGroup } from '../actions/user';
 
-export class ViewExpensePage extends React.Component {
+export class ViewGroupPage extends React.Component {
   onAdd = (expense) => {
     this.props.startEditGroup(this.props.expense.id, true);
     this.props.history.push('/');
@@ -46,4 +46,4 @@ const mapDispatchToProps = (dispatch, props) => ({
   startEditGroup: (id, bool) => dispatch(startEditGroup(id, bool))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewExpensePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewGroupPage);

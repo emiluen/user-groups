@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
-export default class ExpenseForm extends React.Component {
+export default class GroupForm extends React.Component {
   constructor(props) {
     super(props);
 

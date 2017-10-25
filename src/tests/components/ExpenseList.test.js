@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ExpenseList } from '../../components/ExpenseList';
+import { GroupList } from '../../components/GroupList';
 import expenses from '../fixtures/expenses';
 
-test('should render ExpenseList with expenses', () => {
-  const wrapper = shallow(<ExpenseList expenses={expenses} />);
+test('should render GroupList with expenses', () => {
+  const wrapper = shallow(<GroupList expenses={expenses} />);
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should render ExpenseList with empty message', () => {
-  const wrapper = shallow(<ExpenseList expenses={[]} />);
+test('should render GroupList with empty message', () => {
+  const wrapper = shallow(<GroupList expenses={[]} />);
   expect(wrapper).toMatchSnapshot();
 });

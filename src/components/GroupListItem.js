@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
 
-const ExpenseListItem = ({ id, description, amount, createdAt, edit }) => {
+const GroupListItem = ({ id, description, amount, createdAt, edit }) => {
   const getPath = () => {
     if (edit) {
       return `/edit/${id}`;
@@ -23,4 +23,4 @@ const ExpenseListItem = ({ id, description, amount, createdAt, edit }) => {
   );
 };
 
-export default ExpenseListItem;
+export default GroupListItem;

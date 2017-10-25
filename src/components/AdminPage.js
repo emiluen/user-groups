@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Expenses from './Expenses';
+import Groups from './Groups';
 import selectExpenses from '../selectors/expenses';
 
 export const AdminPage = (props) => (
@@ -11,7 +11,7 @@ export const AdminPage = (props) => (
       </div>
     </div>
     <div className="content-container">
-      <Expenses expenses={props.expenses} edit={true} />
+      <Groups expenses={props.expenses} edit={true} />
     </div>
   </div>
 );

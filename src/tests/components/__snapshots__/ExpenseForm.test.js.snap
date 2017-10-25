@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseForm correctly 1`] = `
+exports[`should render GroupForm correctly 1`] = `
 <form
   className="form"
   onSubmit={[Function]}
@@ -108,7 +108,7 @@ exports[`should render ExpenseForm correctly 1`] = `
 </form>
 `;
 
-exports[`should render ExpenseForm correctly with expense data 1`] = `
+exports[`should render GroupForm correctly with expense data 1`] = `
 <form
   className="form"
   onSubmit={[Function]}

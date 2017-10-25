@@ -1,10 +1,10 @@
 import React from 'react';
 import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
-import DashboardPage from '../components/DashboardPage';
-import EditExpensePage from '../components/EditExpensePage';
-import AddExpensePage from '../components/AddExpensePage';
-import ViewExpensePage from '../components/ViewExpensePage';
+import GroupsPage from '../components/GroupsPage';
+import EditGroupPage from '../components/EditGroupPage';
+import AddGroupPage from '../components/AddGroupPage';
+import ViewGroupPage from '../components/ViewGroupPage';
 import UserPage from '../components/UserPage';
 import AdminPage from '../components/AdminPage';
 import NotFoundPage from '../components/NotFoundPage';
@@ -20,11 +20,11 @@ const AppRouter = () => (
     <div>
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
-        <PrivateRoute path="/dashboard" component={DashboardPage} />
+        <PrivateRoute path="/dashboard" component={GroupsPage} />
         <PrivateRoute path="/user" component={UserPage} />
-        <PrivateRoute path="/view/:id" component={ViewExpensePage} />
-        <PrivateRoute path="/create" component={AddExpensePage} />
-        <PrivateRoute path="/edit/:id" component={EditExpensePage} />
+        <PrivateRoute path="/view/:id" component={ViewGroupPage} />
+        <PrivateRoute path="/create" component={AddGroupPage} />
+        <PrivateRoute path="/edit/:id" component={EditGroupPage} />
         <PrivateRoute path="/admin" component={AdminPage} />
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
-import { ExpenseListFilters } from '../../components/ExpenseListFilters';
+import { GroupListFilters } from '../../components/GroupListFilters';
 import { filters, altFilters } from '../fixtures/filters';
 
 let setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate, wrapper;
@@ -13,7 +13,7 @@ beforeEach(() => {
   setStartDate = jest.fn();
   setEndDate = jest.fn();
   wrapper = shallow(
-    <ExpenseListFilters
+    <GroupListFilters
       filters={filters}
       setTextFilter={setTextFilter}
       sortByDate={sortByDate}
@@ -24,11 +24,11 @@ beforeEach(() => {
   );
 });
 
-test('should render ExpenseListFilters correctly', () => {
+test('should render GroupListFilters correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should render ExpenseListFilters with alt data correctly', () => {
+test('should render GroupListFilters with alt data correctly', () => {
   wrapper.setProps({
     filters: altFilters
   });

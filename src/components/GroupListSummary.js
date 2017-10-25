@@ -5,7 +5,7 @@ import numeral from 'numeral';
 import selectExpenses from '../selectors/expenses';
 import selectExpensesTotal from '../selectors/expenses-total';
 
-export class ExpensesSummary extends React.Component {
+export class GroupListSummary extends React.Component {
   countExpenses = () => {
     return this.props.expenses.length;
   }
@@ -44,4 +44,4 @@ export class ExpensesSummary extends React.Component {
   };
 };
 
-export default ExpensesSummary;
+export default GroupListSummary;

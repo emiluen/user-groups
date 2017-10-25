@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render EditExpensePage 1`] = `
+exports[`should render EditGroupPage 1`] = `
 <div>
   <div
     className="page-header"
@@ -18,7 +18,7 @@ exports[`should render EditExpensePage 1`] = `
   <div
     className="content-container"
   >
-    <ExpenseForm
+    <GroupForm
       expense={
         Object {
           "amount": 4500,

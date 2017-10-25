@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseList with empty message 1`] = `
+exports[`should render GroupList with empty message 1`] = `
 <div
   className="content-container"
 >
@@ -37,7 +37,7 @@ exports[`should render ExpenseList with empty message 1`] = `
 </div>
 `;
 
-exports[`should render ExpenseList with expenses 1`] = `
+exports[`should render GroupList with expenses 1`] = `
 <div
   className="content-container"
 >
@@ -63,7 +63,7 @@ exports[`should render ExpenseList with expenses 1`] = `
   <div
     className="list-body"
   >
-    <ExpenseListItem
+    <GroupListItem
       amount={195}
       createdAt={0}
       description="Gum"
@@ -71,7 +71,7 @@ exports[`should render ExpenseList with expenses 1`] = `
       key="1"
       note=""
     />
-    <ExpenseListItem
+    <GroupListItem
       amount={109500}
       createdAt={-345600000}
       description="Rent"
@@ -79,7 +79,7 @@ exports[`should render ExpenseList with expenses 1`] = `
       key="2"
       note=""
     />
-    <ExpenseListItem
+    <GroupListItem
       amount={4500}
       createdAt={345600000}
       description="Credit Card"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should correctly render ExpensesSummary with 1 expense 1`] = `
+exports[`should correctly render GroupListSummary with 1 expense 1`] = `
 <div
   className="page-header"
 >
@@ -36,7 +36,7 @@ exports[`should correctly render ExpensesSummary with 1 expense 1`] = `
 </div>
 `;
 
-exports[`should correctly render ExpensesSummary with multiple expenses 1`] = `
+exports[`should correctly render GroupListSummary with multiple expenses 1`] = `
 <div
   className="page-header"
 >

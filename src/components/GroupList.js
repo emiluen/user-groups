@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
-import ExpenseListItem from './ExpenseListItem';
+import GroupListItem from './GroupListItem';
 
-const ExpenseList = (props) => (
+const GroupList = (props) => (
   <div className="content-container">
     <div className="list-header">
       <div className="show-for-mobile">Expenses</div>
@@ -19,7 +19,7 @@ const ExpenseList = (props) => (
           </div>
         ) : (
             props.expenses.map((expense) => {
-              return <ExpenseListItem key={expense.id} {...expense} edit={props.edit} />;
+              return <GroupListItem key={expense.id} {...expense} edit={props.edit} />;
             })
           )
       }
@@ -27,4 +27,4 @@ const ExpenseList = (props) => (
   </div>
 );
 
-export default ExpenseList;
+export default GroupList;
