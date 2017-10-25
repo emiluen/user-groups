@@ -8,7 +8,7 @@ import ExpensesSummary from './ExpensesSummary';
 
 const List = (props) => (
   <div>
-    <ExpensesSummary expenses={props.expenses} />
+    <ExpensesSummary expenses={props.expenses} edit={props.edit} />
     <ExpenseListFilters />
 
     <div className="content-container">
