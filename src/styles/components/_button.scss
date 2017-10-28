@@ -8,6 +8,10 @@
   line-height: 1;
   padding: $s-size;
   text-decoration: none;
+
+  &:disabled {
+    opacity: 0.3;
+  }
 }
 
 .button--link {

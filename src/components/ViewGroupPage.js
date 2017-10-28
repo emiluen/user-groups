@@ -4,12 +4,8 @@ import GroupForm from './GroupForm';
 import { startEditUserGroup } from '../actions/user';
 
 export class ViewGroupPage extends React.Component {
-  renderButtons = () => {
-    if (this.props.isMember) {
-      return <button className="button button--secondary" onClick={this.onRemove}>Remove Group from Profile</button>;
-    } else {
-      return <button className="button" onClick={this.onAdd}>Add Group to Profile</button>;
-    }
+  state = {
+    loading: false
   };
   onAdd = () => {
     this.editGroup(true);
@@ -18,7 +14,9 @@ export class ViewGroupPage extends React.Component {
     this.editGroup(false);
   };
   editGroup = (bool) => {
+    this.setState({ loading: true });
     this.props.startEditUserGroup(this.props.group.id, bool).then(() => {
+      this.setState({ loading: false });
       this.props.history.push('/');
     });
   };
@@ -37,9 +35,13 @@ export class ViewGroupPage extends React.Component {
             <p>Created: {this.props.group.createdAt}</p>
             <p>Note: {this.props.group.note}</p>
           </div>
-          <div>
-            {this.renderButtons()}
-          </div>
+          {
+            this.props.isMember ? (
+              <button className="button button--secondary" onClick={this.onRemove} disabled={!this.props.isMember || this.state.loading}>Remove Group from Profile</button>
+            ) : (
+              <button className="button" onClick={this.onAdd} disabled={this.props.isMember || this.state.loading}>Add Group to Profile</button>
+            )
+          }
         </div>
       </div>
     );
@@ -50,7 +52,7 @@ const mapStateToProps = (state, props) => {
   let group = state.groups.find((group) => group.id === props.match.params.id);
 
   return ({
-    group: state.groups.find((group) => group.id === props.match.params.id),
+    group: group,
     isMember: state.user.user_groups[group.id]
   });
 };
