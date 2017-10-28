@@ -10,9 +10,6 @@ export const Header = ({ startLogout }) => (
         <Link className="header__title" to="/user">
           <h1>Groupify</h1>
         </Link>
-        <Link className="button button--link" to="/admin">
-          Admin
-        </Link>
         <Link className="button button--link" to="/groups">
           Groups
         </Link>
