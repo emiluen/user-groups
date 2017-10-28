@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Groups from './Groups';
+import { Link } from 'react-router-dom';
 import selectGroups from '../selectors/groups';
 import selectUserGroups from '../selectors/groups-user';
+import GroupListSummary from './GroupListSummary';
+import GroupList from './GroupList';
 
 const UserPage = (props) => (
   <div>
@@ -12,7 +14,19 @@ const UserPage = (props) => (
       </div>
     </div>
     <div className="content-container">
-      <Groups groups={props.groups} edit={false} />
+      {
+        props.groups.length ? (
+          <div>
+            <GroupListSummary groups={props.groups} edit={false} />
+            <GroupList groups={props.groups} edit={false} />
+          </div>
+        ) : (
+          <div>
+            You don't have any groups!
+            <Link to="/groups">Find Groups</Link>
+          </div>
+        )
+      }
     </div>
   </div>
 );

@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Groups from './Groups';
 import selectGroups from '../selectors/groups';
+import GroupListSummary from './GroupListSummary';
+import GroupListFilters from './GroupListFilters';
+import GroupList from './GroupList';
 
 export const AdminPage = (props) => (
   <div>
@@ -11,7 +13,9 @@ export const AdminPage = (props) => (
       </div>
     </div>
     <div className="content-container">
-      <Groups groups={props.groups} edit={true} />
+      <GroupListSummary groups={props.groups} edit={true} />
+      <GroupListFilters />
+      <GroupList groups={props.groups} edit={true} />
     </div>
   </div>
 );

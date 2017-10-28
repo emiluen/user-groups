@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Groups from './Groups';
 import selectGroups from '../selectors/groups';
+import GroupListFilters from './GroupListFilters';
+import GroupList from './GroupList';
 
 const GroupsPage = (props) => (
   <div>
@@ -11,7 +12,8 @@ const GroupsPage = (props) => (
       </div>
     </div>
     <div className="content-container">
-      <Groups groups={props.groups} edit={false} />
+      <GroupListFilters />
+      <GroupList groups={props.groups} edit={false} />
     </div>
   </div>
 );
