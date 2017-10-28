@@ -6,7 +6,7 @@ import selectUserGroups from '../selectors/groups-user';
 import GroupListSummary from './GroupListSummary';
 import GroupList from './GroupList';
 
-const UserPage = (props) => (
+const UserPage = ({ groups }) => (
   <div>
     <div className="page-header">
       <div className="content-container">
@@ -15,15 +15,17 @@ const UserPage = (props) => (
     </div>
     <div className="content-container">
       {
-        props.groups.length ? (
+        groups.length ? (
           <div>
-            <GroupListSummary groups={props.groups} edit={false} />
-            <GroupList groups={props.groups} edit={false} />
+            <GroupListSummary groups={groups} edit={false} />
+            <GroupList groups={groups} edit={false} />
           </div>
         ) : (
-          <div>
-            You don't have any groups!
-            <Link to="/groups">Find Groups</Link>
+          <div className="placeholder">
+            <div className="placeholder__box">
+              <h3 className="placeholder__title">You don't have any groups.</h3>
+              <Link className="button" to="/groups">Find Groups</Link>
+            </div>
           </div>
         )
       }

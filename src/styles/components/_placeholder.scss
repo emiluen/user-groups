@@ -1,0 +1,19 @@
+.placeholder {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.placeholder__box {
+  border: 1px solid $white-gray;
+  border-radius: 3px;
+  padding: $l-size $m-size;
+  text-align: center;
+  width: 40rem;
+}
+
+.placeholder__title {
+  font-size: $font-size-large;
+  font-weight: 300;
+  margin: 0 0 $m-size;
+}

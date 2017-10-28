@@ -11,13 +11,16 @@ export class ViewGroupPage extends React.Component {
       return <button className="button" onClick={this.onAdd}>Add Group to Profile</button>;
     }
   };
-  onAdd = (group) => {
-    this.props.startEditUserGroup(this.props.group.id, true);
-    this.props.history.push('/');
+  onAdd = () => {
+    this.editGroup(true);
   };
   onRemove = () => {
-    this.props.startEditUserGroup(this.props.group.id, false);
-    this.props.history.push('/');
+    this.editGroup(false);
+  };
+  editGroup = (bool) => {
+    this.props.startEditUserGroup(this.props.group.id, bool).then(() => {
+      this.props.history.push('/');
+    });
   };
   render() {
     return (
