@@ -23,7 +23,7 @@ const UserPage = ({ groups }) => (
         ) : (
           <div className="placeholder">
             <div className="placeholder__box">
-              <h3 className="placeholder__title">You don't have any groups.</h3>
+              <h2 className="placeholder__title">You don't have any groups.</h2>
               <Link className="button" to="/groups">Find Groups</Link>
             </div>
           </div>
